@@ -68,9 +68,16 @@ hide.addEventListener('click', (e)=>{
 //****Search */
 search.addEventListener('keyup',(e)=>{
    const searchChar = e.target.value.toUpperCase();
-   const nodes = document.getElementsByTagName('li');
-   Array.from(nodes).forEach((item)=>{
-       console.log(item.children[0]);
+    const nodes = document.getElementsByTagName('li');
+    
+   Array.from(nodes).forEach(( item )=>{
+       const parText = item.firstElementChild.textContent;
+       if ( parText.toUpperCase().indexOf(searchChar) !== -1) { 
+           item.style.display = 'block';
+       }
+       else {
+        item.style.display = 'none';
+       }
    });
    
 
